@@ -23,6 +23,7 @@ import {
   BitpieWalletAdapter,
   BitgetWalletAdapter
 } from '@solana/wallet-adapter-wallets'
+import {TonspackWalletAdapter} from '@solana/wallet-adapter-tonspack'
 import { useAppStore, defaultNetWork, defaultEndpoint } from '../store/useAppStore'
 import { registerMoonGateWallet } from '@moongate/moongate-adapter'
 import { TipLinkWalletAdapter } from '@tiplink/wallet-adapter'
@@ -63,6 +64,7 @@ const App: FC<PropsWithChildren<any>> = ({ children }) => {
 
   const wallets = useMemo(
     () => [
+      new TonspackWalletAdapter(),
       new PhantomWalletAdapter(),
       new SolflareWalletAdapter(),
       new SlopeWalletAdapter({ endpoint }),
