@@ -307,6 +307,21 @@ export const useAppStore = createStore<AppState>(
 
         let i = 0
         const checkAndSetRpcNode = async () => {
+          const rpcs = [
+              {
+                "url": "https://solana-mainnet.g.alchemy.com/v2/3g4hrqE8FazH8S6bb1VhepRxaC075um4",
+                "batch": true,
+                "name": "Alcamy",
+                "weight": 90,
+                "ws": "wss://raydium-raydium-5ad5.mainnet.rpcpool.com/whirligig"
+              },
+              {
+                "url": "https://mainnet.helius-rpc.com/?api-key=a32e6052-b2ed-491f-9521-ac6df5e9665a",
+                "batch": true,
+                "name": "Helius",
+                "weight": 10
+              }
+            ]
           const success = await setRpcUrlAct(rpcs[i].url, true, i !== rpcs.length - 1)
           if (!success) {
             i++
